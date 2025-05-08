@@ -1,0 +1,210 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.8;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+/* 新增：顶部按钮容器样式 */
+.top-buttons-container {
+    position: fixed; /* 固定位置 */
+    top: 10px;
+    right: 10px; /* 放在右上角，如果想放左上角，改为 left: 10px; */
+    z-index: 1000; /* 确保在最上层 */
+    display: flex; /* 使用 Flexbox 排列子元素 */
+    gap: 10px; /* 子元素（按钮）之间的间隙 */
+    align-items: center; /* 垂直居中对齐子元素 */
+}
+
+
+/* 编辑模式切换按钮样式 (移除定位，保留其他样式) */
+.edit-toggle-button {
+    /* position: fixed; */ /* 移除 */
+    /* top: 10px; */ /* 移除 */
+    /* right: 10px; */ /* 移除 */
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    /* z-index: 1000; */ /* 移除 */
+    transition: background-color 0.2s ease;
+}
+
+.edit-toggle-button:hover {
+    background-color: #0056b3;
+}
+
+/* 包裹层样式：限制宽度并居中 */
+.main-content-wrapper {
+    max-width: 900px;
+    margin: 40px auto 20px auto; /* 上方留40px给固定按钮，左右自动分配居中，下方留20px */
+    padding: 0 10px;
+}
+
+.container {
+    border: 1px solid #dcdcdc;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    word-break: break-word;
+}
+
+.prefix {
+    font-weight: bold;
+    color: #555;
+}
+
+.suffix {
+    font-weight: bold;
+    color: #555;
+}
+
+.tags-display {
+    /* 默认显示模式的标签样式 */
+}
+
+/* --- 编辑模式样式 --- */
+
+.edit-controls {
+    margin-top: 30px;
+    padding: 25px;
+    border: 2px dashed #a0a0a0;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.edit-controls h3 {
+    margin-top: 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.tags-edit-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 60px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    .sortable-drag {
+        opacity: 0.8;
+        background-color: #cfe2ff;
+    }
+}
+
+.tag-edit-item {
+    display: flex;
+    align-items: center;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: grab;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.tag-edit-item:hover {
+    background-color: #dde2e6;
+    border-color: #c0c5c9;
+}
+
+.tag-edit-item .delete-tag {
+    margin-left: 10px;
+    color: #dc3545;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.2s ease;
+}
+
+.tag-edit-item .delete-tag:hover {
+    color: #c82333;
+}
+
+.add-tag-section {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.add-tag-section input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.add-tag-section button {
+    padding: 8px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.add-tag-section button:hover {
+    background-color: #218838;
+}
+
+.save-button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: Style when SortableJS is dragging */
+.sortable-ghost {
+    opacity: 0.2;
+}
+
+/* 复制按钮样式 (移除定位和宽度，保留其他样式) */
+.copy-button {
+    /* display: block; */ /* 移除，flex item 默认为 inline-block 或 block */
+    /* width: 100%; */ /* 移除 */
+    /* margin-top: 15px; */ /* 移除，使用 gap */
+    padding: 8px 15px; /* 使与编辑按钮高度一致 */
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* 使与编辑按钮字体大小一致 */
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.copy-button:hover {
+    background-color: #5a6268;
+}
+
+/* 在编辑模式下隐藏复制按钮 (修改选择器) */
+body.editing .copy-button {
+    display: none;
+}

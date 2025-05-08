@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态标签展示</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 新增：顶部按钮容器，用于固定和排列按钮 -->
+    <div class="top-buttons-container">
+        <!-- 编辑模式切换按钮 (移到容器内) -->
+        <button id="edit-toggle" class="edit-toggle-button">进入编辑模式</button>
+        <!-- 一键复制按钮 (移到容器内) -->
+        <button id="copy-button" class="copy-button">一键复制文本</button>
+    </div>
+
+
+    <!-- 包裹层用于居中和限制宽度 -->
+    <div class="main-content-wrapper">
+        <!-- 展示区域 -->
+        <div class="container">
+            <span class="prefix">@天翼：给我这个</span>
+            <!-- 标签会动态显示在这里 -->
+            <span id="tags-display" class="tags-display"></span>
+            <span class="suffix">的电子胖橘看笑了</span>
+        </div>
+
+        <!-- 编辑区域 (默认隐藏) -->
+        <div id="edit-controls" class="edit-controls" style="display: none;">
+            <h3>编辑标签</h3>
+            <!-- 标签编辑列表 (SortableJS 将作用于此) -->
+            <div id="tags-edit-list" class="tags-edit-list">
+                <!-- 标签项将在此处生成 -->
+            </div>
+            <!-- 添加新标签 -->
+            <div class="add-tag-section">
+                <input type="text" id="new-tag-input" placeholder="在此输入新标签内容">
+                <button id="add-tag-button">添加标签</button>
+            </div>
+            <!-- 保存按钮 -->
+            <button id="save-tags-button" class="save-button">保存并退出编辑</button>
+        </div>
+
+    </div> <!-- end of main-content-wrapper -->
+
+    <!-- 引入 SortableJS 库 (从 CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <!-- 引入我们的脚本 -->
+    <script src="script.js"></script>
+
+</body>
+</html>
